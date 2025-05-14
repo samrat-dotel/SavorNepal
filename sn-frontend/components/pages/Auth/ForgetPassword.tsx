@@ -87,6 +87,8 @@ const ForgetPassword = () => {
                 className={styles.input}
                 placeholder="Enter new password"
                 required
+                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$"
+                title="Password must be at least 5 characters long and contain both letters and numbers"
               />
               <div className={styles.buttonContainer}>
                 <button type="submit" className={styles.submit}>Reset Password</button>

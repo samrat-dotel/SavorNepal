@@ -103,12 +103,17 @@ const Signup = () => {
                     <div className={styles.passwordContainer}>
                         <label htmlFor="password" className={styles.label}>Password</label>
                         <div className={styles.passwordContainer}>
-                            <input type={showPassword ? "text" : "password"} id="password" 
-                                   className={styles.input} 
-                                   value={password}
-                                   placeholder="password"
-                                   onChange={(e) => setPassword(e.target.value)} 
-                                   required />
+                           <input
+                                type={showPassword ? "text" : "password"}
+                                id="password"
+                                className={styles.input}
+                                value={password}
+                                placeholder="password"
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$"
+                                title="Password must be at least 5 characters long and contain both letters and numbers"
+/>
                             <span onClick={togglePasswordVisibility} className={styles.eyeIcon}>
                                 {showPassword ? <FaEyeSlash /> : <FaEye />}
                             </span>
@@ -118,12 +123,17 @@ const Signup = () => {
                     <div className={styles.passwordContainer}>
                         <label htmlFor="confirmPassword" className={styles.label}>Confirm Password</label>
                         <div className={styles.passwordContainer}>
-                            <input type={showConfirmPassword ? "text" : "password"} id="confirmPassword" 
-                                   className={styles.input} 
-                                   value={confirmPassword}
-                                   placeholder="confirm password"
-                                   onChange={(e) => setConfirmPassword(e.target.value)} 
-                                   required />
+                            <input
+  type={showConfirmPassword ? "text" : "password"}
+  id="confirmPassword"
+  className={styles.input}
+  value={confirmPassword}
+  placeholder="confirm password"
+  onChange={(e) => setConfirmPassword(e.target.value)}
+  required
+  pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$"
+  title="Password must be at least 5 characters long and contain both letters and numbers"
+/>
                             <span onClick={toggleConfirmPasswordVisibility} className={styles.eyeIcon}>
                                 {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                             </span>
