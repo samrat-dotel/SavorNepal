@@ -1,0 +1,144 @@
+.main {
+    background: linear-gradient(to bottom, #f4bc94, #ffffff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    height: auto;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba(252, 212, 188, 0.7);
+    display: flex;
+}
+
+.bgImage {
+    position: absolute;
+    display: flex;
+    left: 19%;
+    z-index: 1;
+    gap: 25%;
+}
+
+.image2 {
+    position: relative;
+    top: 50px;
+}
+
+.form {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 50px;
+    z-index: 2;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #333333;
+    text-align: center;
+}
+
+.inputContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.label {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333333;
+}
+
+.input {
+    padding: 16px;
+    width: 400px;
+    background-color: #ffffff;
+    border: transparent;
+    border-radius: 20px;
+    color: black;
+    font-size: 20px;
+}
+
+.passwordContainer {
+    position: relative;
+    margin: 10px 0 12px 0;
+}
+
+.eyeIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #333333;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    gap: 15px;
+}
+
+.button {
+    border-radius: 12px;
+    color: white;
+    background-color: #5E8C5F;
+    padding: 10px 80px;
+    font-size: 18px;
+}
+
+.button:hover {
+    background-color: #379838;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.button:disabled {
+    background-color: #c4c4c4;
+    cursor: not-allowed;
+}
+
+.socialMedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.socialButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 60px;
+    border-radius: 24px;
+    background-color: white;
+    color: rgb(0, 136, 255);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.link {
+    color: #5E8C5F;
+    font-weight: bold;
+}

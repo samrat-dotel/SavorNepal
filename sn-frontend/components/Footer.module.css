@@ -1,0 +1,143 @@
+.footer {
+    background-color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.backToTop {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.backToTopButton {
+    background-color: white;
+    border: 2px solid green;
+    color: green;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.backToTopButton:hover {
+    background-color: green;
+    color: white;
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    color: black;
+}
+
+.menuSection {
+    flex: 1;
+    text-align: left;
+}
+
+.logo {
+    margin-bottom: 10px;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin: 5px 0;
+}
+
+.menu a {
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.menu a:hover {
+    color: #e87444;
+}
+
+.categories {
+    flex: 1;
+    text-align: left;
+}
+
+.categories h3 {
+    font-weight: bold;
+}
+
+.categories ul {
+    list-style: none;
+    padding: 0;
+}
+
+.categories li {
+    margin: 5px 0;
+}
+
+.social {
+    flex: 1;
+    text-align: left;
+}
+
+.social h3 {
+    font-weight: bold;
+    color: black;
+}
+
+.socialIcons {
+    display: flex;
+    gap: 15px;
+    font-size: 18px;
+    margin-top: 10px;
+    color: black;
+}
+
+.centerLogo {
+    flex: 1;
+    text-align: center;
+    opacity: 0.2;
+}
+
+.newsletter {
+    flex: 1;
+    text-align: left;
+}
+
+.newsletter h3 {
+    font-weight: bold;
+    color: black;
+}
+
+.newsletter input {
+    width: 300px;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+.submitButton {
+    background-color: #e87444;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.submitButton:hover {
+    background-color: #d45c2b;
+}

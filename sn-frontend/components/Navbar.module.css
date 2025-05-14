@@ -1,0 +1,114 @@
+.navbar {
+    background-color: #e87444;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0 30px;
+}
+
+.navbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.image {
+    transition: transform 0.3s ease-in-out;
+}
+
+.image:hover {
+    transform: scale(1.1);
+}
+
+.searchContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 30px;
+}
+
+.searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px 12px;
+    color: black;
+    background-color: #fff;
+    font-size: 16px;
+    border: 2px solid #d45c2b;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.searchInput:focus {
+    border-color: #b94e25;
+    background-color: #fff5f0;
+    color: black;
+}
+
+.searchButton {
+    background-color: #d45c2b;
+    border: 2px solid #d45c2b;
+    padding: 8px 12px;
+    color: white;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchButton:hover {
+    background-color: #b94e25;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: auto;
+}
+
+.navLink {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+}
+
+.navLink:hover {
+    color: #ffddcc;
+}
+
+.login {
+    background-color: #fff;
+    color: #e87444;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+}
+
+.login:hover {
+    background-color: #ffddcc;
+    color: #d45c2b;
+}
+
+.signup {
+    background-color: #d45c2b;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+}
+
+.signup:hover {
+    background-color: #b94e25;
+}
