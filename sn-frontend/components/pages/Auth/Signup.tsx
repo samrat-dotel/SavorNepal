@@ -39,7 +39,7 @@ const Signup = () => {
         setLoading(true);
 
         const userData = {
-            name,
+            name: username,
             email,
             password,
         };
