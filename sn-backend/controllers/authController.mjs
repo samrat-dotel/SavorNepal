@@ -71,5 +71,48 @@ export const login = async (req, res) => {
       return res.status(500).json({ message: "Something went wrong. Please try again." });
     }
   };
+
+
+  // 1. Check if email exists
+export const forgotPassword = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const user = await User.findOne({ where: { email } });
+
+    if (!user) {
+      return res.status(404).json({ message: 'Email not found' });
+    }
+
+    res.status(200).json({ message: 'Email verified. Proceed to reset password.' });
+  } catch (error) {
+    console.error('Forgot password error:', error); // This will help!
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+
+// 2. Reset password
+export const resetPassword = async (req, res) => {
+  const { email, newPassword } = req.body;
+
+  try {
+    const hashedPassword = hashPassword(newPassword);
+
+    const updated = await User.update(
+      { password: hashedPassword },
+      { where: { email } }
+    );
+
+    if (updated[0] === 0) {
+      return res.status(400).json({ message: 'Password update failed' });
+    }
+
+    res.status(200).json({ message: 'Password updated successfully' });
+  } catch (error) {
+    console.error('Reset password error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
   
   export default login;
