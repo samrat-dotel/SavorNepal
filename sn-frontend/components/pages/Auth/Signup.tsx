@@ -48,8 +48,9 @@ const Signup = () => {
             // Make API call to backend
             const response = await axios.post('http://localhost:3001/api/signup', userData);
             console.log('User signed up:', response.data);
-            // You can redirect to login page or show a success message
-            window.location.href = './login';
+            // You can redirect to login page or show a success message 
+            alert("Signup completed successfully!");
+            window.location.href = './login?message=Signup+completed+successfully';
         } catch (error: unknown) {
             if (axios.isAxiosError(error) && error.response) {
                 console.error('Error signing up:', error.response.data.message);
