@@ -1,0 +1,85 @@
+.contactContainer {
+    background: linear-gradient(to bottom, #ed7e09, #ffffff);
+    padding: 4rem 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #D86436;
+}
+
+.header p {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.info {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 1rem;
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.form {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form input,
+.form textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border 0.3s ease;
+    color: black;
+}
+
+.form input:focus,
+.form textarea:focus {
+    border-color: #D86436;
+    outline: none;
+}
+
+.form button {
+    background-color: #D86436;
+    color: white;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form button:hover {
+    background-color: #c05024;
+}

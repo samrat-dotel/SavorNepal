@@ -5,6 +5,7 @@ import session from 'express-session';
 import passport from 'passport';
 import { connectDB } from './config/db.mjs';
 import authRoutes from './routes/authRoutes.mjs';
+import contactRoutes from './routes/contactRoutes.mjs';
 import './config/passportStrategy.mjs';  // Make sure this comes after importing `passport`
 
 const app = express();
@@ -34,6 +35,7 @@ app.use(passport.session());
 // Routes
 app.use('/auth', authRoutes);  // This is where Google/Facebook login routes go
 app.use('/api', authRoutes);   // Keep your traditional email/password routes too
+app.use('/api', contactRoutes);
 
 const PORT = process.env.PORT || 3001;
 

@@ -1,10 +1,54 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { AiOutlineSearch } from "react-icons/ai"; // Import search icon
+import { AiOutlineSearch } from "react-icons/ai";
 import styles from './Navbar.module.css';
 
+type User = {
+    name: string;
+};
+
 const Navbar: React.FC = () => {
+    const [user, setUser] = useState<User | null>(null);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        setUser(null);
+        setShowDropdown(false);
+        window.location.href = '/';
+    };
+
+    const getInitial = (name: string) => name.charAt(0).toUpperCase();
+
+    const toggleDropdown = () => {
+        setShowDropdown((prev) => !prev);
+    };
+
+    // Close dropdown on outside click
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setShowDropdown(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     return (
         <nav className={styles.navbar}>
             <div className={styles.navbarContainer}>
@@ -24,10 +68,27 @@ const Navbar: React.FC = () => {
                 <div className={styles.navLinks}>
                     <Link href="/" className={styles.navLink}>Home</Link>
                     <Link href="/about" className={styles.navLink}>About Us</Link>
-                    <Link href="/recipes" className={styles.navLink}>Recipes</Link>
+                    <Link href="/addrecipe" className={styles.navLink}>Add Recipe</Link>
                     <Link href="/contact" className={styles.navLink}>Contact Us</Link>
-                    <Link href="/login" className={`${styles.navLink} ${styles.login}`}>Login</Link>
-                    <Link href="/signup" className={`${styles.navLink} ${styles.signup}`}>Sign Up</Link>
+
+                    {user ? (
+                        <div className={styles.userWrapper} ref={dropdownRef}>
+                            <div className={styles.userCircle} onClick={toggleDropdown}>
+                                {getInitial(user.name)}
+                            </div>
+                            {showDropdown && (
+                                <div className={styles.logoutDropdown}>
+                                    <span style = {{color: 'black'}}>{user.name}</span>
+                                    <button onClick={handleLogout} className={styles.logoutBtn}>Logout</button>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <>
+                            <Link href="/login" className={`${styles.navLink} ${styles.login}`}>Login</Link>
+                            <Link href="/signup" className={`${styles.navLink} ${styles.signup}`}>Sign Up</Link>
+                        </>
+                    )}
                 </div>
             </div>
         </nav>

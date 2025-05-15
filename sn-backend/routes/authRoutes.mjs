@@ -20,24 +20,38 @@ router.post('/forgot-password', forgotPassword);
 router.post('/reset-password', resetPassword);
 
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
-
 router.get('/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
     (req, res) => {
         const token = jwt.sign({ id: req.user.id }, process.env.JWT_SECRET, { expiresIn: '1d' });
-       res.redirect('http://localhost:3000');;
+
+        // Build user object with only safe fields
+        const user = {
+            name: req.user.name,
+            email: req.user.email,
+        };
+
+        const redirectUrl = `http://localhost:3000/oauth-callback?user=${encodeURIComponent(JSON.stringify(user))}&token=${token}`;
+        res.redirect(redirectUrl);
     }
 );
 
 router.get('/facebook', passport.authenticate('facebook', { scope: ['email'] }));
-
 router.get('/facebook/callback',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
     (req, res) => {
         const token = jwt.sign({ id: req.user.id }, process.env.JWT_SECRET, { expiresIn: '1d' });
-        res.redirect('http://localhost:3000');;
+
+        const user = {
+            name: req.user.name,
+            email: req.user.email,
+        };
+
+        const redirectUrl = `http://localhost:3000/oauth-callback?user=${encodeURIComponent(JSON.stringify(user))}&token=${token}`;
+        res.redirect(redirectUrl);
     }
 );
+
 
 
 export default router;

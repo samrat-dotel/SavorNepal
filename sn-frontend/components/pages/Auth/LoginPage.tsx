@@ -31,12 +31,13 @@ const handleSubmit = async (e: React.FormEvent) => {
         });
 
         console.log('Login successful:', response.data);
-        
-        // Save JWT Token
-        localStorage.setItem('token', response.data.token);
 
-        // Redirect to YouTube
-        window.location.href = 'https://www.youtube.com';
+        // Save token and user in localStorage
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data.user)); // 👈 ADD THIS LINE
+
+        // Redirect to homepage
+        window.location.href = '/';
 
     } catch (err) {
         setError('Invalid email or password');
@@ -47,7 +48,6 @@ const handleSubmit = async (e: React.FormEvent) => {
         }
     }
 };
-
     return (
         <main className={styles.main}>
 
