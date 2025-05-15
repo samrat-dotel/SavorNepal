@@ -124,15 +124,15 @@ const Signup = () => {
                         <label htmlFor="confirmPassword" className={styles.label}>Confirm Password</label>
                         <div className={styles.passwordContainer}>
                             <input
-  type={showConfirmPassword ? "text" : "password"}
-  id="confirmPassword"
-  className={styles.input}
-  value={confirmPassword}
-  placeholder="confirm password"
-  onChange={(e) => setConfirmPassword(e.target.value)}
-  required
-  pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$"
-  title="Password must be at least 5 characters long and contain both letters and numbers"
+                                type={showConfirmPassword ? "text" : "password"}
+                                id="confirmPassword"
+                                className={styles.input}
+                                value={confirmPassword}
+                                placeholder="confirm password"
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                required
+                                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$"
+                                title="Password must be at least 5 characters long and contain both letters and numbers"
 />
                             <span onClick={toggleConfirmPasswordVisibility} className={styles.eyeIcon}>
                                 {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}

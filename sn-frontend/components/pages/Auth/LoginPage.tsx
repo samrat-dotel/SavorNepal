@@ -47,7 +47,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             console.error('Error during login:', err);
         }
     }
-};
+};  
     return (
         <main className={styles.main}>
 
