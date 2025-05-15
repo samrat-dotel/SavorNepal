@@ -1,4 +1,4 @@
-import User from '../models/user.mjs';
+import User from '../models/User.mjs';
 import { hashPassword } from '../utils/hashPassword.mjs';
 import bcrypt from 'bcrypt';
 import { generateToken } from '../utils/jwt.mjs';

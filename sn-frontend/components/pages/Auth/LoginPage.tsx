@@ -102,8 +102,12 @@ const handleSubmit = async (e: React.FormEvent) => {
                     <p style={{color: "#333333", fontWeight: "bold", fontSize: "14px"}}> or Continue with </p>
 
                     <section className={styles.socialMedia}>
-                        <a href="https://www.gmail.com" className={styles.socialButton} target="_blank"><FcGoogle /></a>
-                        <a href="https://www.facebook.com" className={styles.socialButton} target="_blank"><ImFacebook /></a>
+                    <a href="http://localhost:3001/auth/google" className={styles.socialButton}>
+                    <FcGoogle />
+                    </a>
+                    <a href="http://localhost:3001/auth/facebook" className={styles.socialButton}>
+                    <ImFacebook />
+                    </a>
                     </section>
 
                     <p style={{color: "#333333", paddingTop: "20px"}}> Don&apos;t have an account? <a href="./signup" className={styles.link} >Register now</a> </p>
