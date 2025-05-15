@@ -1,11 +1,12 @@
-"use client";
-
-import React from 'react';
+import React from 'react'
+import AboutPage from '@/components/pages/About/AboutPage'
 
 const About = () => {
   return (
-    <div>About Us</div>
+    <div>
+      <AboutPage />
+    </div>
   )
 }
 
-export default About;
+export default About

@@ -1,0 +1,324 @@
+.heroContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 700px;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(to bottom, #ffffff, #ed7e09);
+    animation: fadeInContainer 1s ease forwards;
+}
+
+.foodImage {
+    position: absolute;
+    transform: rotate(-10deg);
+    width: 60%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: -500px;
+    margin-left: -100px;
+    animation: floatImage 4s ease-in-out infinite;
+}
+
+.cardWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -200px;
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.rotatedBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-10deg);
+    background-color: #D86436;
+    z-index: 1;
+    border-radius: 10px;
+    animation: rotateIn 1.5s ease forwards;
+}
+
+.contentCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    color: black;
+    max-width: 580px;
+    z-index: 2;
+    background-color: #e7b99b;
+    padding: 40px;
+    animation: cardPop 1.2s ease forwards;
+}
+
+.title {
+    font-size: 46px;
+    font-weight: semibold;
+    color: #14380D;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.description {
+    font-size: 20px;
+    color: black;
+    line-height: 30px;
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.titlBox {
+    position: absolute;
+    transform: rotate(35deg);
+    background-color: #d86436;
+    animation: fadeInUp 1.4s ease forwards;
+}
+
+.recipeCount {
+    background-color: #ffffff;
+    color: black;
+    position: absolute;
+    z-index: 4;
+    top: 600px;
+    left: 200px;
+    padding: 15px;
+    color: #046E1B;
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    animation: bounceIn 1.6s ease forwards;
+}
+
+.brandLogo {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 100px;
+    height: auto;
+    z-index: 5;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+.learnMoreButton {
+    width: 200px;
+    height: 55px;
+    background-color: #5e8c5f;
+    color: #14380d;
+    font-size: 20px;
+    border-radius: 12px;
+    animation: scaleIn 1.2s ease-in-out forwards;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.learnMoreButton:hover {
+    background-color: #167116;
+    color: #ffffff;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.icon {
+    position: absolute;
+    top: -20px;
+    animation: dropIn 1.3s ease forwards;
+}
+
+.breadIcon {
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    animation: dropIn 1.3s ease forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.background {
+    background: linear-gradient(to bottom, #ed7e09, #f49a3a, #ffffff);
+    padding: 80px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.animate {
+    display: grid;
+}
+
+.mainHeading {
+    text-align: center;
+    font-size: 38px;
+    color: #D86436;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease forwards;
+    background-color: #e7b99b;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1400px;
+}
+
+.left,
+.right {
+    flex: 1;
+    min-width: 300px;
+}
+
+.left p,
+.right p {
+    background: #fff;
+    padding: 30px;
+    border: 2px solid #D86436;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+    color: #333;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.section:nth-child(2) p {
+    animation-delay: 0.5s;
+    background-color: #e7b99b;
+}
+
+.section:nth-child(3) p {
+    animation-delay: 1.0s;
+    background-color: #e7b99b;
+}
+
+.section:nth-child(4) p {
+    animation-delay: 1.5s;
+    background-color: #e7b99b;
+}
+
+.section:nth-child(5) p {
+    animation-delay: 2.0s;
+    background-color: #e7b99b;
+}
+
+@keyframes floatImage {
+    0% {
+        transform: rotate(-10deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-10deg) translateY(-20px);
+    }
+
+    100% {
+        transform: rotate(-10deg) translateY(0);
+    }
+}
+
+@keyframes rotateIn {
+    0% {
+        transform: rotate(-30deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotate(-10deg);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateY(30px);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes dropIn {
+    0% {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes cardPop {
+    0% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInContainer {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
