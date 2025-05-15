@@ -1,8 +1,13 @@
+"use client";
+
 import React from 'react'
+import Home from '@/components/pages/Home/Home';
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <Home />
+    </div>
   )
 }
 

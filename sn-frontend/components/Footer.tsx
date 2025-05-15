@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { FaFacebookF, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
 import styles from "./Footer.module.css";
+import { MdArrowUpward } from "react-icons/md";
 
 const Footer: React.FC = () => {
   return (
@@ -13,7 +14,8 @@ const Footer: React.FC = () => {
         className={styles.backToTopButton} 
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       >
-        ⬆️ Back to top
+        <MdArrowUpward size={24} />
+        
       </button>
     </div>
 
@@ -41,12 +43,20 @@ const Footer: React.FC = () => {
 
         <div className={styles.social}>
           <h3>Social</h3>
-          <div className={styles.socialIcons}>
-            <FaFacebookF />
-            <FaTwitter />
-            <FaEnvelope />
-            <FaInstagram />
-          </div>
+            <div className={styles.socialIcons}>
+            <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <FaFacebookF />
+            </Link>
+            <Link href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+              <FaTwitter />
+            </Link>
+            <Link href="mailto:samratdotelij@gmail.com" target="_blank" rel="noopener noreferrer">
+              <FaEnvelope />
+            </Link>
+            <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <FaInstagram />
+            </Link>
+            </div>
         </div>
 
         <div className={styles.newsletter}>
