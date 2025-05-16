@@ -28,14 +28,13 @@ const Signup = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        
-        // Check if passwords match
+
         if (password !== confirmPassword) {
             setErrorMessage("Passwords do not match");
             return;
         }
 
-        setErrorMessage(""); // Clear any previous error messages
+        setErrorMessage("");
         setLoading(true);
 
         const userData = {
@@ -45,10 +44,8 @@ const Signup = () => {
         };
 
         try {
-            // Make API call to backend
             const response = await axios.post('http://localhost:3001/api/signup', userData);
             console.log('User signed up:', response.data);
-            // You can redirect to login page or show a success message 
             alert("Signup completed successfully!");
             window.location.href = './login?message=Signup+completed+successfully';
         } catch (error: unknown) {
@@ -82,28 +79,28 @@ const Signup = () => {
 
                     <div className={styles.inputContainer}>
                         <label htmlFor="username" className={styles.label}>Username</label>
-                        <input type="text" id="username" 
-                               className={styles.input} 
-                               value={username}
-                               placeholder="username"
-                               onChange={(e) => setUsername(e.target.value)} 
-                               required />
+                        <input type="text" id="username"
+                            className={styles.input}
+                            value={username}
+                            placeholder="username"
+                            onChange={(e) => setUsername(e.target.value)}
+                            required />
                     </div>
 
                     <div className={styles.inputContainer}>
                         <label htmlFor="email" className={styles.label}>Email</label>
-                        <input type="email" id="email" 
-                               className={styles.input} 
-                               value={email}
-                               placeholder="username@gmail.com"
-                               onChange={(e) => setEmail(e.target.value)} 
-                               required />
+                        <input type="email" id="email"
+                            className={styles.input}
+                            value={email}
+                            placeholder="username@gmail.com"
+                            onChange={(e) => setEmail(e.target.value)}
+                            required />
                     </div>
 
                     <div className={styles.passwordContainer}>
                         <label htmlFor="password" className={styles.label}>Password</label>
                         <div className={styles.passwordContainer}>
-                           <input
+                            <input
                                 type={showPassword ? "text" : "password"}
                                 id="password"
                                 className={styles.input}
@@ -113,7 +110,7 @@ const Signup = () => {
                                 required
                                 pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$"
                                 title="Password must be at least 5 characters long and contain both letters and numbers"
-/>
+                            />
                             <span onClick={togglePasswordVisibility} className={styles.eyeIcon}>
                                 {showPassword ? <FaEyeSlash /> : <FaEye />}
                             </span>
@@ -133,7 +130,7 @@ const Signup = () => {
                                 required
                                 pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$"
                                 title="Password must be at least 5 characters long and contain both letters and numbers"
-/>
+                            />
                             <span onClick={toggleConfirmPasswordVisibility} className={styles.eyeIcon}>
                                 {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                             </span>
@@ -146,23 +143,31 @@ const Signup = () => {
                     {errorMessage && <p className={styles.error}>{errorMessage}</p>}
 
                     <div className={styles.buttonContainer}>
-                        <button 
+                        <button
                             type="submit"
-                            className={styles.button} 
+                            className={styles.button}
                             disabled={loading || password !== confirmPassword}
                         >
                             {loading ? 'Signing up...' : 'Sign Up'}
                         </button>
                     </div>
 
-                    <p style={{color: "#333333", fontWeight: "bold", fontSize: "14px", textAlign: "center", marginTop: "10px"}}> or Continue with </p>
+                    <p style={{ color: "#333333", fontWeight: "bold", fontSize: "14px", textAlign: "center", marginTop: "10px" }}>
+                        or Continue with
+                    </p>
 
                     <section className={styles.socialMedia}>
-                        <a href="https://www.gmail.com" className={styles.socialButton} target="_blank"><FcGoogle /></a>
-                        <a href="https://www.facebook.com" className={styles.socialButton} target="_blank"><ImFacebook /></a>
+                        <a href="http://localhost:3001/auth/google" className={styles.socialButton}>
+                            <FcGoogle />
+                        </a>
+                        <a href="http://localhost:3001/auth/facebook" className={styles.socialButton}>
+                            <ImFacebook />
+                        </a>
                     </section>
 
-                    <p style={{color: "#333333", paddingTop: "20px"}}> Already have an account? <a href="./login" className={styles.link} >Login now</a> </p>
+                    <p style={{ color: "#333333", paddingTop: "20px" }}>
+                        Already have an account? <a href="./login" className={styles.link}>Login now</a>
+                    </p>
                 </form>
             </section>
         </main>

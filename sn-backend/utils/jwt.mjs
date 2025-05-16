@@ -12,7 +12,12 @@ if (!JWT_SECRET) {
 
 export const generateToken = (user) => {
   return jwt.sign(
-    { id: user.id, email: user.email },
+    {
+      id: user.id,
+      email: user.email,
+      role: user.role,  //  Include role in the payload
+      name: user.name   // Optional: useful for displaying on frontend
+    },
     JWT_SECRET,
     { expiresIn: '1h' }
   );

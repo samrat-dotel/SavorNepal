@@ -3,39 +3,51 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import passport from 'passport';
+import path from 'path';
 import { connectDB } from './config/db.mjs';
+
+// Routes
 import authRoutes from './routes/authRoutes.mjs';
 import contactRoutes from './routes/contactRoutes.mjs';
+import recipeRoutes from './routes/recipeRoutes.mjs';  // ✅ Add this for recipes
+
 import './config/passportStrategy.mjs';  // Make sure this comes after importing `passport`
 
 const app = express();
 
-// Middleware
+// CORS setup (Allow frontend to talk to backend)
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:3000',  // Frontend URL
     credentials: true
 }));
-app.use(bodyParser.json());
 
-// Session configuration (for Passport to track login session)
+// Body parsers
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Serve uploaded files from /uploads
+app.use('/uploads', express.static('uploads')); // ✅ Needed to serve images
+
+// Session configuration
 app.use(session({
-    secret: 'super_secret_key',  // Replace this with a strong secret in production
+    secret: 'super_secret_key',  // Replace with env variable in production
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: false,  // Set to true in production with HTTPS
-        maxAge: 24 * 60 * 60 * 1000, // 1 day
+        secure: false, // Change to true in production (HTTPS)
+        maxAge: 24 * 60 * 60 * 1000 // 1 day
     }
 }));
 
-// Passport Middleware
+// Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
-app.use('/auth', authRoutes);  // This is where Google/Facebook login routes go
-app.use('/api', authRoutes);   // Keep your traditional email/password routes too
-app.use('/api', contactRoutes);
+app.use('/auth', authRoutes);         // Google/Facebook OAuth
+app.use('/api', authRoutes);          // Email/password auth
+app.use('/api', contactRoutes);       // Contact form submission
+app.use('/api/recipes', recipeRoutes);  // ✅ Recipes endpoint
 
 const PORT = process.env.PORT || 3001;
 

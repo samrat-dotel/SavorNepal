@@ -8,6 +8,7 @@ import styles from './Navbar.module.css';
 
 type User = {
     name: string;
+    role: string; // ✅ Added role
 };
 
 const Navbar: React.FC = () => {
@@ -33,10 +34,9 @@ const Navbar: React.FC = () => {
     const getInitial = (name: string) => name.charAt(0).toUpperCase();
 
     const toggleDropdown = () => {
-        setShowDropdown((prev) => !prev);
+        setShowDropdown(prev => !prev);
     };
 
-    // Close dropdown on outside click
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -68,8 +68,21 @@ const Navbar: React.FC = () => {
                 <div className={styles.navLinks}>
                     <Link href="/" className={styles.navLink}>Home</Link>
                     <Link href="/about" className={styles.navLink}>About Us</Link>
-                    <Link href="/addrecipe" className={styles.navLink}>Add Recipe</Link>
+
+                    {/* Show Add Recipe only if user is not admin (optional) */}
+                    {user?.role !== 'admin' && (
+                        <Link href="/addrecipe" className={styles.navLink}>Add Recipe</Link>
+                    )}
+
                     <Link href="/contact" className={styles.navLink}>Contact Us</Link>
+
+                    {/* Role-based dashboard */}
+                    {user?.role === 'admin' && (
+                        <Link href="/admin-dashboard" className={styles.navLink}>Admin Dashboard</Link>
+                    )}
+                    {user?.role === 'user' && (
+                        <Link href="/user-dashboard" className={styles.navLink}>User Dashboard</Link>
+                    )}
 
                     {user ? (
                         <div className={styles.userWrapper} ref={dropdownRef}>
@@ -78,7 +91,7 @@ const Navbar: React.FC = () => {
                             </div>
                             {showDropdown && (
                                 <div className={styles.logoutDropdown}>
-                                    <span style = {{color: 'black'}}>{user.name}</span>
+                                    <span style={{ color: 'black' }}>{user.name}</span>
                                     <button onClick={handleLogout} className={styles.logoutBtn}>Logout</button>
                                 </div>
                             )}
