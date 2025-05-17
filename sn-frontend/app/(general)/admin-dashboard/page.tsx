@@ -1,11 +1,11 @@
 import React from 'react'
-import UserDashboard from '@/components/pages/Dashboard/UserDashboard'
+import AdminDashboard from '@/components/pages/Dashboard/AdminDashboard'
 
 
 const page = () => {
   return (
     <main>
-      <UserDashboard />
+      <AdminDashboard />
     </main>
   )
 }

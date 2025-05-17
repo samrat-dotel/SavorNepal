@@ -1,0 +1,109 @@
+.dashboardWrapper {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboardTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.noRecipeText {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #555;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2rem;
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.cardContainer {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 380px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardContainer:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.5);
+}
+
+.imageContainer {
+  width: 100%;
+  height: 200px;
+  position: relative;
+}
+
+.recipeImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.detailsContainer {
+  padding: 16px;
+}
+
+.recipeTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.recipeMeta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.recipeDescription {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3em;
+  line-height: 1.5em;
+}
+
+.recipeStats {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.statusApproved {
+  color: green;
+  font-weight: bold;
+}
+
+.statusRejected {
+  color: red;
+  font-weight: bold;
+}
+
+.statusPending {
+  color: orange;
+  font-weight: bold;
+}

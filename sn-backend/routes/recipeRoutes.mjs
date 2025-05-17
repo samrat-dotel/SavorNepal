@@ -1,3 +1,5 @@
+// routes/recipeRoutes.mjs
+
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
@@ -7,16 +9,17 @@ import {
   getUserRecipes,
   getRecipeById,
   updateRecipeStatus,
+  getRecentApprovedRecipes,
   deleteRecipe
 } from '../controllers/recipeController.mjs';
-import { isAuthenticated } from '../middleware/isAuthenticated.mjs';
+import { isAuthenticated, isAdmin } from '../middleware/auth.mjs';
 
 const router = express.Router();
 
-// 🔧 Multer setup for file uploads
+// 🔧 Multer setup for image uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Make sure this folder exists
+    cb(null, 'uploads/');
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
@@ -25,14 +28,13 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// 🔄 Route to create recipe (send directly to controller)
+// 📝 Routes
 router.post('/', isAuthenticated, upload.single('image'), createRecipe);
-
-// 🧾 Other routes
-router.get('/', isAuthenticated, getAllRecipes);
+router.get('/', isAuthenticated, isAdmin, getAllRecipes); // Admin only
 router.get('/user', isAuthenticated, getUserRecipes);
-router.get('/:id', getRecipeById);
-router.patch('/:id/status', isAuthenticated, updateRecipeStatus);
+router.get('/recent', getRecentApprovedRecipes);
+router.get('/:id', isAuthenticated, getRecipeById);
+router.patch('/:id/status', isAuthenticated, isAdmin, updateRecipeStatus); // Admin only
 router.delete('/:id', isAuthenticated, deleteRecipe);
 
 export default router;

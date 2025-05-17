@@ -1,0 +1,243 @@
+.main {
+    background: linear-gradient(to bottom, #fffbe7, #f4bc94, #fffbe7);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Segoe UI", sans-serif;
+    background-color: #fff7f0;
+}
+
+.banner {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image {
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+.title {
+    text-align: center;
+    font-size: 48px;
+    color: #0B5A04;
+    margin-bottom: 10px;
+}
+
+.author,
+.review,
+.rating {
+    text-align: center;
+    font-size: 18px;
+    margin: 4px 0;
+}
+
+.descriptionText {
+    margin: 40px 0;
+    padding: 20px;
+}
+
+.descriptionText h3 {
+    color: #0B5A04;
+    font-size: 32px;
+    text-align: center;
+}
+.section {
+    margin: 40px 0;
+    padding: 20px;
+}
+
+.section h3 {
+    color: #0B5A04;
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.description,
+.ingredients,
+.instructions {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 10px;
+    list-style: disc;
+    line-height: 1.6;
+    padding-left: 95px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.description:hover,
+.ingredients:hover,
+.instructions:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.commentBox {
+    background: #fff;
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.replies {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.reply {
+    background: #f4f4f4;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 6px;
+}
+
+.upvoteButton {
+    background-color: transparent;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.upvoteButton.active {
+    color: green;
+    font-weight: bold;
+}
+
+.commentForm {
+    margin-top: 40px;
+}
+
+.commentForm h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    margin-bottom: 10px;
+    font-family: inherit;
+}
+
+.button {
+    background-color: #0B5A04;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #158d07;
+}
+.comment {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.headerRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.avatarSmall {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.date {
+    font-size: 12px;
+    color: #888;
+}
+
+.commentText {
+    font-size: 16px;
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+.actionRow {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+    align-items: center;
+    color: #333;
+}
+
+.reply {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #2e7d32;
+}
+
+.heart {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.heart.active {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.replyBlock {
+    margin-left: 48px;
+    margin-top: 12px;
+    background: #f7f7f7;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border-radius: 30px;
+    padding: 10px 16px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.commentInput {
+    background-color: #fff;
+    color: black;
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.uploadButton {
+    background-color: 
+    #0b5a04;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}

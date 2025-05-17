@@ -42,22 +42,22 @@ const Footer: React.FC = () => {
         </div>
 
         <div className={styles.social}>
-          <h3>Social</h3>
-            <div className={styles.socialIcons}>
-            <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-              <FaFacebookF />
-            </Link>
-            <Link href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-              <FaTwitter />
-            </Link>
-            <Link href="mailto:samratdotelij@gmail.com" target="_blank" rel="noopener noreferrer">
-              <FaEnvelope />
-            </Link>
-            <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-              <FaInstagram />
-            </Link>
-            </div>
-        </div>
+  <h3>Social</h3>
+  <div className={styles.socialIcons}>
+    <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+      <FaFacebookF />
+    </Link>
+    <Link href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+      <FaTwitter />
+    </Link>
+    <Link href="mailto:samratdotelij@gmail.com" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+      <FaEnvelope />
+    </Link>
+    <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+      <FaInstagram />
+    </Link>
+  </div>
+</div>
 
         <div className={styles.newsletter}>
           <h3>Sign up for our newsletter</h3>

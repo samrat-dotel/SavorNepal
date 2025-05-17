@@ -19,7 +19,7 @@ router.post('/login', login);
 router.post('/forgot-password', forgotPassword);
 router.post('/reset-password', resetPassword);
 
-router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'],   prompt: 'select_account'}));
 router.get('/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
     (req, res) => {
@@ -29,6 +29,7 @@ router.get('/google/callback',
         const user = {
             name: req.user.name,
             email: req.user.email,
+            role: req.user.role,
         };
 
         const redirectUrl = `http://localhost:3000/oauth-callback?user=${encodeURIComponent(JSON.stringify(user))}&token=${token}`;
@@ -45,6 +46,7 @@ router.get('/facebook/callback',
         const user = {
             name: req.user.name,
             email: req.user.email,
+             role: req.user.role,
         };
 
         const redirectUrl = `http://localhost:3000/oauth-callback?user=${encodeURIComponent(JSON.stringify(user))}&token=${token}`;

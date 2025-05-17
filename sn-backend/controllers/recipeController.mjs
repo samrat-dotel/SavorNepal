@@ -151,3 +151,19 @@ export const deleteRecipe = async (req, res) => {
     res.status(500).json({ message: 'Failed to delete recipe' });
   }
 };
+
+// Get recent approved recipes
+export const getRecentApprovedRecipes = async (req, res) => {
+  try {
+    const recipes = await Recipe.findAll({
+      where: { status: 'approved' },
+      order: [['createdAt', 'DESC']],
+      limit: 10,
+    });
+    res.status(200).json(recipes);
+  } catch (error) {
+    console.log('🔥 Error in getRecentApprovedRecipes:', error); // ADD THIS
+    res.status(500).json({ error: "Failed to fetch recent approved recipes" });
+  }
+};
+
