@@ -3,13 +3,14 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import passport from 'passport';
-import path from 'path';
 import { connectDB } from './config/db.mjs';
+import './models/association.mjs';
 
 // Routes
 import authRoutes from './routes/authRoutes.mjs';
 import contactRoutes from './routes/contactRoutes.mjs';
 import recipeRoutes from './routes/recipeRoutes.mjs';  // ✅ Add this for recipes
+
 
 import './config/passportStrategy.mjs';  // Make sure this comes after importing `passport`
 
@@ -18,11 +19,12 @@ const app = express();
 // CORS setup (Allow frontend to talk to backend)
 app.use(cors({
     origin: 'http://localhost:3000',  // Frontend URL
-    credentials: true
+    credentials: true,
 }));
 
 // Body parsers
 app.use(bodyParser.json());
+app.use(express.json()); // For JSON requests
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve uploaded files from /uploads
@@ -34,6 +36,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
+         httpOnly: true,
+        sameSite: 'lax',
         secure: false, // Change to true in production (HTTPS)
         maxAge: 24 * 60 * 60 * 1000 // 1 day
     }

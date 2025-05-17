@@ -140,9 +140,14 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
   }
 
   try {
+    // Retrieve token from localStorage or your auth provider
+    const token = localStorage.getItem("token") || "";
     const response = await fetch("http://localhost:3001/api/recipes", {
-      method: "POST",
-      body: formData,
+    method: 'POST',
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+  body: formData,
     });
 
     const data = await response.json();

@@ -19,7 +19,7 @@ export const generateToken = (user) => {
       name: user.name   // Optional: useful for displaying on frontend
     },
     JWT_SECRET,
-    { expiresIn: '1h' }
+    { expiresIn: '7d' }
   );
 };
 

@@ -52,6 +52,15 @@ const Recipe = sequelize.define('Recipe', {
       isIn: [['pending', 'approved', 'rejected']],
     }
   },
+  userId: { // ✅ Foreign key to associate with User
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'users',
+      key: 'id'
+    },
+    field: 'user_id'
+  },
   createdAt: {
     type: DataTypes.DATE,
     field: 'created_at'
