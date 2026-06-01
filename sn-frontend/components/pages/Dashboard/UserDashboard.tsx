@@ -70,7 +70,7 @@ export default function UserDashboard() {
         <select
           id="statusFilter"
           value={filter}
-          onChange={(e) => setFilter(e.target.value as any)}
+          onChange={(e) => setFilter(e.target.value as never)}
           className={styles.filterSelect}
         >
           <option value="all">All</option>
