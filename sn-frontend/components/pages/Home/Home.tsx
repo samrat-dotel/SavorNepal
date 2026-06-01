@@ -90,7 +90,7 @@ const Home = () => {
 
       <div className={styles.cardContainer1}>
         <h2 className={styles.heading}> Popular Recipes </h2>
-        <RecipeCard limit={4} />
+        <RecipeCard limit={3} />
         <div style={{ textAlign: "center", marginTop: "20px" }}>
           <button
             className={styles.button}
@@ -103,7 +103,7 @@ const Home = () => {
     
   <div className={styles.cardContainer2}>
     <h2 className={styles.heading}> Recent Recipes </h2>
-    <DrecipeCard limit={4} fetchUrl="/api/recipes/recent" />
+    <DrecipeCard limit={3} fetchUrl="/api/recipes/recent" />
     <div style={{ textAlign: "center", marginTop: "20px" }}>
       <button
         className={styles.button}

@@ -1,0 +1,60 @@
+.pageContainer {
+    width: 100%;
+    min-height: 100vh;
+    padding: 90px 24px 70px;
+    background:
+        radial-gradient(circle at top left, rgba(249, 115, 22, 0.14), transparent 34%),
+        linear-gradient(180deg, #fff7ed 0%, #ffffff 45%, #fffaf3 100%);
+    color: #111827;
+    text-align: center;
+}
+
+.pageContainer::before {
+    content: "Popular from SavorNepal";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 14px;
+    padding: 8px 18px;
+
+    border-radius: 999px;
+    background: rgba(249, 115, 22, 0.12);
+    color: #ea580c;
+
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.pageHeading {
+  text-align: center;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  color: #111827;
+  margin-bottom: 18px;
+}
+
+.pageHeading::after {
+  content: "Explore the most loved Nepali dishes, rated and enjoyed by food lovers.";
+  display: block;
+  max-width: 680px;
+  margin: 18px auto 46px;
+  font-size: clamp(0.95rem, 2vw, 1.12rem);
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: normal;
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 70px 16px 50px;
+  }
+
+  .pageHeading::after {
+    margin-bottom: 32px;
+  }
+}

@@ -22,17 +22,56 @@
     outline: none;
 }
 
-.backToTopButton:hover {
-    background-color: #28a745;
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 14px rgba(40, 167, 69, 0.35);
+.backToTop {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.backToTopButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: #ffffff;
+    border: 1.5px solid rgba(232, 116, 68, 0.35);
+    color: #e87444;
+
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(232, 116, 68, 0.14);
+
     cursor: pointer;
+    outline: none;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.backToTopButton:hover {
+    background-color: #e87444;
+    color: #ffffff;
+    border-color: #e87444;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(232, 116, 68, 0.28);
 }
 
 .backToTopButton:active {
-    transform: translateY(0px);
-    box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(232, 116, 68, 0.2);
+}
+
+.backToTopButton:focus-visible {
+    outline: 3px solid rgba(232, 116, 68, 0.28);
+    outline-offset: 4px;
 }
 
 
