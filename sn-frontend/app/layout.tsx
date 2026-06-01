@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "🌶️SavorNepal",
+  title: "SavorNepal",
   description: "SavorNepal is a recipe-sharing and discovery platform that celebrates the richness of Nepali cuisine",
+    icons: {
+    icon: "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f372.svg",
+  },
 };
 
 export default function RootLayout({

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "🌶️SavorNepal",
+  title: "SavorNepal",
   description: "SavorNepal is a recipe-sharing and discovery platform that celebrates the richness of Nepali cuisine",
 };
 
